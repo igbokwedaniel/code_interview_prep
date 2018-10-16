@@ -1,0 +1,41 @@
+//Add digits in number(https://leetcode.com/problems/add-digits/description/)
+//
+//Given an integer num, repeatedly add all its digits until the result has only one digit.
+//
+//For example :
+//
+//Given num = 38, the process is like : 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.
+
+#include<iostream>
+#include<string>
+using namespace std;
+int add_digits(int number);
+int main()
+{
+	int number;
+	cout << "enter the number\t";
+	cin >> number;
+	for(int i=9; i<= number;)
+		number = add_digits(number);
+		cout << number;
+
+}
+
+int add_digits(int number)
+{
+
+	int count = 0; char c; char* buff;
+	string buffer{ to_string(number) };
+	if (buffer.size() == 1)
+		return (number);
+	else
+	{
+		for (int i = 0; i < buffer.size(); i++)
+		{
+			c = buffer[i];
+			count += atoi(&c);
+			
+		}
+		return count;
+	}
+}
